@@ -37,7 +37,7 @@ WHERE status_id != 3;
 
 sql_6 = """
     INSERT INTO tasks (title, status_id, user_id)
-VALUES ("Make a Power BI presentation", '1', 5)
+VALUES ("Make a Power BI presentation", 1, 5)
 ;
 """
 
@@ -63,11 +63,11 @@ sql_12 = """SELECT t.id, t.title, t.description, u.fullname FROM tasks t INNER J
 WHERE t.status_id=2;
 """
 
-sql_12 = """SELECT u.fullname , count(t.title) FROM users u LEFT JOIN tasks t ON t.user_id =u.id 
-GROUP BY t.user_id ;
+sql_13 = """SELECT u.fullname , count(t.title) FROM users u LEFT JOIN tasks t ON t.user_id =u.id 
+GROUP BY u.id, u.fullname;
 """
 
-sql_12 = """SELECT s.name, count(t.id) FROM status s LEFT JOIN tasks t ON (t.status_id = s.id)
+sql_14 = """SELECT s.name, count(t.id) FROM status s LEFT JOIN tasks t ON (t.status_id = s.id)
 GROUP BY s.name;
 """
 
